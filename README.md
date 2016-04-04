@@ -8,6 +8,7 @@ The purpose of this project is to examine the performance consequences of using 
 2. R-Base https://cran.cnr.berkeley.edu/
 
 ## Usage
+#### First, to generate data, run the following python script on your desired algorithms!
 ```
 python SimulateP2PNetwork.py -h
 usage: SimulateP2PNetwork.py [-h] [-r R] [-e E] [-t T]
@@ -51,5 +52,10 @@ Ex:
 .
 .
 ```
-
+#### Next, to visualize (graph) the data, run the following R command:
+```
+Rscript visualizeData.R [name of CSV file from SimulateP2PNetwork.py]
+or
+Rscript compareData.R [name of 1st CSV file] [name of 2nd CSV file]
+```
 ###### Credit Github User: bwbaugh, original creator of "random_connected_graph.py", which I modified for this project!
