@@ -48,9 +48,22 @@ args = parser.parse_args()
 
 numberOfVertices = args.vertices;
 algorithm = args.algorithm;
-numberOfRuns = args.r;
-numberOfExperiments = args.e;
-numberOfTrails = args.t;
+
+if args.t:
+    numberOfTrails = args.t;
+else:
+    numberOfTrails = 100;
+
+if args.e:
+    numberOfExperiments = args.e;
+else:
+    numberOfExperiments = 50;
+
+if args.r:
+    numberOfRuns = args.r;
+else:
+    numberOfRuns = 10;
+
 
 # Code Starts Here!
 
@@ -66,8 +79,43 @@ def shuffleEdges():
     verts = [x for x in xrange(int(numberOfVertices))];
     network = random_connected_graph.random_walk(verts, edges);
     network.sort_edges();
-    print "Generated network containing %d hosts and %d connections!" % (len(network.nodes), len(network.edges));
+    #print "Generated network containing:\n\
+#%d hosts (vertices)\n\
+#%d connections (edges)" % (len(network.nodes), len(network.edges));
     return network;
 
-# Define the Initial State of the Network
-network = shuffleEdges();
+# Shuffles node looking for the file, and node which has the file
+def shuffleNodesOfInterest():
+    startNode = random.randrange(0, numberOfVertices-1)
+    endNode = random.randrange(0, numberOfVertices-1)
+    if (startNode == endNode):
+        return shuffleNodesOfInterest();
+    else:
+        return startNode, endNode;
+
+def run():
+    print "";
+
+# setup loading bar
+print "\n\nRunning Simulations..."
+trialRatio = numberOfTrails*2/100
+sys.stdout.write("[%s]" % (" " * 50))
+sys.stdout.flush()
+sys.stdout.write("\b" * (50+1)) # return to start of line, after '['
+
+# Run the expirement
+for currentTrial in range(numberOfTrails):
+    network = shuffleEdges();
+    for currentExeriment in range(numberOfExperiments):
+        startVertex, endVertex = shuffleNodesOfInterest();
+        for currentRun in range(numberOfRuns):
+            # TODO: RUN THE TRIAL!
+            this = 1;
+
+    # Progress Bar
+    if (currentTrial % trialRatio==0):
+        sys.stdout.write("\033[92m=>\033[0m")
+        sys.stdout.flush()
+        sys.stdout.write("\b")
+        sys.stdout.flush()
+sys.stdout.write(']\n')
