@@ -11,6 +11,7 @@ from pprint import pprint
 class Graph(object):
     def __init__(self, nodes, edges=None, loops=False, multigraph=False,
                  digraph=False):
+        self.neighborSet = {}
         self.nodes = nodes
         if edges:
             self.edges = edges
@@ -24,6 +25,19 @@ class Graph(object):
 
     def _compute_edge_set(self):
         raise NotImplementedError()
+
+    def addNeighbor(self, vertexA, vertexB):
+        if self.neighborSet.has_key(vertexA):
+            if vertexB not in self.neighborSet[vertexA]:
+                self.neighborSet[vertexA].append(vertexB);
+        else:
+            self.neighborSet[vertexA] = [vertexB];
+
+        if self.neighborSet.has_key(vertexB):
+            if vertexA not in self.neighborSet[vertexB]:
+                self.neighborSet[vertexB].append(vertexA);
+        else:
+            self.neighborSet[vertexB] = [vertexA];
 
     def add_edge(self, edge):
         """Add the edge if the graph type allows it."""
@@ -215,6 +229,7 @@ def random_walk(nodes, num_edges, loops=False, multigraph=False, digraph=False):
             graph.add_edge(edge)
             S.remove(neighbor_node)
             T.add(neighbor_node)
+            graph.addNeighbor(current_node, neighbor_node)
         # Set the new node as the current node.
         current_node = neighbor_node
 
