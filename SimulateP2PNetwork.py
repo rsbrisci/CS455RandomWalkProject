@@ -16,12 +16,12 @@ epilog="Examples:\n\
 python SimulateP2PNetwork.py 30 randomwalk\n\
 This will simulate a network of 30 vertices and use the random walk algorithm.\n\
 \n\
-python SimulateP2PNetwork.py 500 normal -e 20\n\
+python SimulateP2PNetwork.py -e 20 500 normal\n\
 This will simulate a network of 500 verticies, using the normal algorithm, and run a \
 new experiment (assign new start and end nodes) on each graph 20 times.\n\
 \n\
-python SimulateP2PNetwork.py 350 randomwalk -t 30 -e 200\n\
-This will simulate a network of 500 verticies, using the normal algorithm, run a \
+python SimulateP2PNetwork.py -t 30 -e 200 350 randomwalk\n\
+This will simulate a network of 500 verticies, using the randomwalk algorithm, run a \
 new trial (assign new start and end nodes) on each graph 30 times and re-build (assign new edges) the graph 200 times.\n\
 \n\
 Output: a csv in the following form (one line per RUN);\n\
