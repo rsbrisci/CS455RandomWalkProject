@@ -4,12 +4,11 @@ The purpose of this project is to examine the performance consequences of using 
 
 ## Requirements
 1. Python
-..* https://www.python.org/downloads/
+⋅⋅* https://www.python.org/downloads/
 2. R-Base
-..* https://cran.cnr.berkeley.edu/
+⋅⋅* https://cran.cnr.berkeley.edu/
 
 ## Usage
-Note: NOT tested as of yet on Windows and R stuff just flat out doesn't work as of 4/4/2016
 ```
 python SimulateP2PNetwork.py <Number of Vertices>
 ```
