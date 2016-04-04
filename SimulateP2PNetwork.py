@@ -16,7 +16,7 @@ def createNetwork(numVerticies):
 # as hosts very often come online and go offline.
 def randomizeEdges(network):
     for node in network.iteritems():
-        print node;
+        node.append()
     return network;
 
 randomizeEdges(createNetwork(4));
