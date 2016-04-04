@@ -8,7 +8,8 @@ The purpose of this project is to examine the performance consequences of using 
 2. R-Base https://cran.cnr.berkeley.edu/
 
 ## Usage
-```python SimulateP2PNetwork.py -h
+```
+python SimulateP2PNetwork.py -h
 usage: SimulateP2PNetwork.py [-h] [-r R] [-e E] [-t T]
                              vertices {randomwalk,normal}
 
