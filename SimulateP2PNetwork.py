@@ -6,6 +6,7 @@ import traceback
 import os
 import math
 import argparse
+import random_connected_graph
 
 # Parses Arguments
 parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -44,6 +45,13 @@ parser.add_argument('-e', type=int,
 parser.add_argument('-t', type=int,
                    help='(Default 100) Number of TRIALS (times graph will be re-built with new edges)')
 args = parser.parse_args()
+
+numberOfVertices = args.vertices;
+algorithm = args.algorithm;
+numberOfRuns = args.r;
+numberOfExperiments = args.e;
+numberOfTrails = args.t;
+
 # Code Starts Here!
 
 # Returns the maximum possible number of edges of an undirected graph with n verticies
@@ -53,15 +61,13 @@ def maxEdges(n):
 # Returns a connected graph with randomized edges.
 # This simulates the reality of real p2p networks,
 # as hosts very often come online and go offline.
-def generateNetwork(numVerticies):
-    edges = random.randrange(numVerticies - 1, maxEdges(numVerticies));
-    print "Generating a graph with %d vertices and %d edges..." % (numVerticies, edges);
-    os.system("python random_connected_graph.py -p -e " +
-              str(edges) + " " + str(numVerticies) + " > edges.txt");
-    print "Done!";
+def shuffleEdges():
+    edges = random.randrange(numberOfVertices - 1, maxEdges(numberOfVertices));
+    verts = [x for x in xrange(int(numberOfVertices))];
+    network = random_connected_graph.random_walk(verts, edges);
+    network.sort_edges();
+    print "Generated network containing %d hosts and %d connections!" % (len(network.nodes), len(network.edges));
+    return network;
 
-try:
-    generateNetwork(int(sys.argv[1]));
-except (ValueError, IndexError):  # In case of keyboard cat
-    print '\033[91m' +"\nThis call takes a single integer (Number of Verticies) as argument\n" + '\033[0m';
-    traceback.print_exc(file=sys.stdout);
+# Define the Initial State of the Network
+network = shuffleEdges();

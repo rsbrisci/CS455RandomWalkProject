@@ -51,4 +51,4 @@ Ex:
 .
 ```
 
-###### Credit Github User: bwbaugh for the random connected graph generation script "random_connected_graph.py"!
+###### Credit Github User: bwbaugh, creator of "random_connected_graph.py"!
