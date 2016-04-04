@@ -3,18 +3,19 @@
 import random
 import sys
 import os
-# Creates an empty graph with a number of supplied verticies
+import math
 
+def maxEdges(n):
+    return (n*(n-1))/2;
 
-def createNetwork(numVerticies):
-    network = {};
-    index = 0;
-    while (index < numVerticies):
-        network[index] = [];
-        index += 1;
-    return network;
-
-os.system("script2.py 1")
 # Returns a connected graph with randomized edges.
 # This simulates the reality of real p2p networks,
 # as hosts very often come online and go offline.
+def generateNetwork(numVerticies):
+    edges = random.randrange(numVerticies-1,maxEdges(numVerticies));
+    print edges
+    verticies = open('labels.txt', 'w');
+    os.system("python random_connected_graph.py -p -e " + str(edges) + " " + str(numVerticies) + " > edges.txt");
+
+
+generateNetwork(300);
