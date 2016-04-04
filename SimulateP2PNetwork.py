@@ -71,6 +71,9 @@ else:
 def maxEdges(n):
     return (n * (n - 1)) / 2;
 
+def runAlgorithm():
+    if (algorithm == "randomwalk"):
+        print""
 # Returns a connected graph with randomized edges.
 # This simulates the reality of real p2p networks,
 # as hosts very often come online and go offline.
