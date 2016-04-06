@@ -83,22 +83,33 @@ def maxEdges(n):
     return (n * (n - 1)) / 2;
 
 # Runs the algorithm and collects data
-def runAlgorithm(graph, startHost, endHost, visited=[]):
+def runAlgorithm(graph, startHost, endHost):
     if (algorithm == "randomwalk"):
-        hops = 0;
-        discoveredHost = random.choice(graph.neighborSet[startHost]);
-        while (hops <= maxPathLength and discoveredHost != endHost):
-            discoveredHost = random.choice(graph.neighborSet[discoveredHost]);
-            hops += 1;
+        hops = [];
+        currHost = random.choice(graph.neighborSet[startHost]);
+        while (len(hops) <= maxPathLength and currHost != endHost):
+            currHost = random.choice(graph.neighborSet[currHost]);
+            hops.append(currHost);
         return hops;
     if (algorithm == "bfs"):
-        if startHost == endHost:
-            print ("Found: %d, Goal: %d, Took: %d" % (startHost, endHost, len(visited)))
-            return len(visited)
-        visited.append(startHost)
-        for nextVertex in graph.neighborSet[startHost]:
-            if nextVertex not in visited:
-                return runAlgorithm(graph, nextVertex, endHost, visited)
+     # maintain a queue of paths
+        queue = []
+        # push the first path into the queue
+        queue.append([startHost])
+        while queue:
+            # get the first path from the queue
+            path = queue.pop(0)
+            # get the last node from the path
+            currHost = path[-1]
+            # path found
+            if currHost == endHost:
+                return path
+            # enumerate all adjacent nodes, construct a new path and push it into the queue
+            for adjacent in graph.neighborSet[currHost]:
+                new_path = list(path)
+                new_path.append(adjacent)
+                queue.append(new_path)
+
 
     if (algorithm == "lazyrandomwalk"):
         raise NotImplementedError;
@@ -141,7 +152,7 @@ for currentTrial in range(numberOfTrails):
         startHost, endHost = shuffleHostsOfInterest();
         hops = [];
         for currentRun in range(numberOfRuns):
-            hops.append(runAlgorithm(network, startHost, endHost));
+            hops.append(sum(runAlgorithm(network, startHost, endHost)));
         averageHopLength = sum(hops)/len(hops);
         includedFailiure = False;
         if maxPathLength in hops:

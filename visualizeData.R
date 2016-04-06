@@ -3,7 +3,7 @@
   require("ggplot2")
   require("foreach")
   args <- commandArgs(TRUE)
-  filename <- "3000VetexRW.csv"
+  filename <- "BFSSimulation.csv"
   df <- read.csv(filename)
   colnames(df) <- c("vertices","edges","algorithm","path_length","included_failure")
   df <- tbl_df(df)
