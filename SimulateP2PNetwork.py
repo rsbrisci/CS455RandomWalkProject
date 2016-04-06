@@ -10,9 +10,9 @@ import random_connected_graph
 
 # Parses Arguments
 parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
-description='Simulates a P2P network with random dynamic connectivity in order to examines runtime \
+                                 description='Simulates a P2P network with random dynamic connectivity in order to examines runtime \
 and space complexity of search algorithms.',
-epilog="Examples:\n\
+                                 epilog="Examples:\n\
 \n\
 python SimulateP2PNetwork.py 30 randomwalk -o output.csv\n\
 This will simulate a network of 30 vertices and use the random walk algorithm, outputs in output.csv\n\
@@ -26,71 +26,77 @@ This will simulate a network of 500 verticies, using the randomwalk algorithm, r
 new trial (assign new start and end nodes) on each graph 30 times and re-build (assign new edges) the graph 200 times.\n\
 \n\
 Output: a csv in the following form (one line per experiment);\n\
-num vertices, num edges, algorithm used, average length of path found\n\
+num vertices, num edges, algorithm used, average length of path found, space needed per host\n\
 Ex:\n\
-300,543,randomwalk,102\n\
-300,543,randomwalk,34\n\
-300,1120,randomwalk,3\n\
+300,543,randomwalk,102,1\n\
+300,543,randomwalk,34,1\n\
+300,1120,randomwalk,3,1\n\
 .\n\
 .\n\
 .")
 parser.add_argument('vertices', type=int,
-                   help='Number of vertices in the simulated network (Recommend <= 1000)')
-parser.add_argument('algorithm',choices=['randomwalk', 'bfs', 'lazyrandomwalk'],
-                   help='Choose an algorithm to use in the simulation')
+                    help='Number of vertices in the simulated network (Recommend <= 1000)')
+parser.add_argument('algorithm', choices=['randomwalk', 'bfs', 'lazyrandomwalk'],
+                    help='Choose an algorithm to use in the simulation')
 parser.add_argument('-r', type=int,
-                   help='(Default 10) Number of RUNS per EXPERIMENTS (exact same start and end nodes, on network with same edges)')
+                    help='(Default 10) Number of RUNS per EXPERIMENTS (exact same start and end nodes, on network with same edges)')
 parser.add_argument('-e', type=int,
-                   help='(Default 50) Number of EXPERIMENTS per TRIAL (new start and end nodes, on network with same edges)')
+                    help='(Default 50) Number of EXPERIMENTS per TRIAL (new start and end nodes, on network with same edges)')
 parser.add_argument('-t', type=int,
-                   help='(Default 100) Number of TRIALS (times graph will be re-built with new edges)')
+                    help='(Default 100) Number of TRIALS (times graph will be re-built with new edges)')
 parser.add_argument('-o',
-                   help='Specify output filename (end with .csv)')
+                    help='Specify output filename (end with .csv)')
 args = parser.parse_args()
-numberOfVertices = args.vertices;
-algorithm = args.algorithm;
-numberOfFailiures = 0;
-maxPathLength = 4 * (math.pow(numberOfVertices, 1));
+numberOfVertices = args.vertices
+algorithm = args.algorithm
+numberOfFailiures = 0
+maxPathLength = 4 * (math.pow(numberOfVertices, 1))
 if args.t:
-    numberOfTrails = args.t;
+    numberOfTrails = args.t
 else:
-    numberOfTrails = 100;
+    numberOfTrails = 100
 
 if args.o:
-    outfileName = args.o;
+    outfileName = args.o
 else:
     if (algorithm == "randomwalk"):
-        outfileName = "RandomWalkSimulation.csv";
+        outfileName = "RandomWalkSimulation.csv"
     if (algorithm == "bfs"):
-        outfileName = "BFSSimulation.csv";
+        outfileName = "BFSSimulation.csv"
     if (algorithm == "lazyrandomwalk"):
-        outfileName = "LazyRandomWalkSimulation.csv";
+        outfileName = "LazyRandomWalkSimulation.csv"
 
 if args.e:
-    numberOfExperiments = args.e;
+    numberOfExperiments = args.e
 else:
-    numberOfExperiments = 50;
+    numberOfExperiments = 50
 
 if args.r:
-    numberOfRuns = args.r;
+    numberOfRuns = args.r
 else:
-    numberOfRuns = 10;
+    numberOfRuns = 10
 
 # Code Starts Here!
 
-# Returns the maximum possible number of edges of an undirected graph with n verticies
+# Returns the maximum possible number of edges of an undirected graph with
+# n verticies
+
+
 def maxEdges(n):
-    return (n * (n - 1)) / 2;
+    return (n * (n - 1)) / 2
 
 # Runs the algorithm and collects data
+
+
 def runAlgorithm(graph, startHost, endHost):
+    # Algorithm sends a constant ammount of data per hop. 8 bytes of data.
     if (algorithm == "randomwalk"):
-        hops = [];
-        currHost = random.choice(graph.neighborSet[startHost]);
+        hops = []
+        currHost = random.choice(graph.neighborSet[startHost])
         while (len(hops) <= maxPathLength and currHost != endHost):
-            currHost = random.choice(graph.neighborSet[currHost]);
-            hops.append(currHost);
-        return hops;
+            currHost = random.choice(graph.neighborSet[currHost])
+            hops.append(currHost)
+        return hops
     if (algorithm == "bfs"):
      # maintain a queue of paths
         queue = []
@@ -104,60 +110,68 @@ def runAlgorithm(graph, startHost, endHost):
             # path found
             if currHost == endHost:
                 return path
-            # enumerate all adjacent nodes, construct a new path and push it into the queue
+            # enumerate all adjacent nodes, construct a new path and push it
+            # into the queue
             for adjacent in graph.neighborSet[currHost]:
                 new_path = list(path)
                 new_path.append(adjacent)
                 queue.append(new_path)
 
-
     if (algorithm == "lazyrandomwalk"):
-        raise NotImplementedError;
+        raise NotImplementedError
 
 # Returns a connected graph with randomized edges.
 # This simulates the reality of real p2p networks,
 # as hosts very often come online and go offline.
+
+
 def shuffleConnections():
-    edges = random.randrange(numberOfVertices - 1, maxEdges(numberOfVertices));
-    verts = [x for x in xrange(int(numberOfVertices))];
-    network = random_connected_graph.random_walk(verts, edges);
-    network.sort_edges();
-    #print "Generated network containing:\n\
+    edges = random.randrange(numberOfVertices - 1, maxEdges(numberOfVertices))
+    verts = [x for x in xrange(int(numberOfVertices))]
+    network = random_connected_graph.random_walk(verts, edges)
+    network.sort_edges()
+    # print "Generated network containing:\n\
 #%d hosts (vertices)\n\
 #%d connections (edges)" % (len(network.nodes), len(network.edges));
-    return network;
+    return network
 
 # Shuffles node looking for the file, and node which has the file
+
+
 def shuffleHostsOfInterest():
-    startNode = random.randrange(0, numberOfVertices-1)
-    endNode = random.randrange(0, numberOfVertices-1)
+    startNode = random.randrange(0, numberOfVertices - 1)
+    endNode = random.randrange(0, numberOfVertices - 1)
     if (startNode == endNode):
-        return shuffleHostsOfInterest();
+        return shuffleHostsOfInterest()
     else:
-        return startNode, endNode;
+        return startNode, endNode
 
 # setup loading bar
 print "\n\nRunning Simulations..."
-trialRatio = math.ceil(numberOfTrails*2/100)
+trialRatio = math.ceil(numberOfTrails * 2 / 100)
 sys.stdout.write("[%s]" % (" " * 50))
 sys.stdout.flush()
-sys.stdout.write("\b" * (50+1)) # return to start of line, after '['
+sys.stdout.write("\b" * (50 + 1))  # return to start of line, after '['
 
 # Run the expirement
 outputCSV = open(outfileName, 'w')
 
 for currentTrial in range(numberOfTrails):
-    network = shuffleConnections();
+    network = shuffleConnections()
     for currentExeriment in range(numberOfExperiments):
-        startHost, endHost = shuffleHostsOfInterest();
-        hops = [];
+        startHost, endHost = shuffleHostsOfInterest()
+        hops = []
+        spacePerHost = 32  # Estimated 32 bytes of data for the base request.
         for currentRun in range(numberOfRuns):
-            hops.append(sum(runAlgorithm(network, startHost, endHost)));
-        averageHopLength = sum(hops)/len(hops);
-        includedFailiure = False;
+            hops.append(sum(runAlgorithm(network, startHost, endHost)))
+        averageHopLength = sum(hops) / len(hops)
+        if algorithm == "bfs":
+            spacePerHost += averageHopLength * 8
+        includedFailiure = False
         if maxPathLength in hops:
-            includedFailiure = True;
-        outputCSV.write("%d,%d,%s,%d,%r\n" % (numberOfVertices, len(network.edges), algorithm, averageHopLength, includedFailiure));
+            includedFailiure = True
+        outputCSV.write("%d,%d,%s,%d,%r,%d\n" % (numberOfVertices, len(
+            network.edges), algorithm, averageHopLength, includedFailiure, spacePerHost))
 
     # Progress Bar
     try:                      # If number of Trials is >50
@@ -166,9 +180,9 @@ for currentTrial in range(numberOfTrails):
             sys.stdout.flush()
             sys.stdout.write("\b")
             sys.stdout.flush()
-    except ZeroDivisionError: # If number of Trials is <50
-            sys.stdout.write("\033[92m=>\033[0m")
-            sys.stdout.flush()
-            sys.stdout.write("\b")
-            sys.stdout.flush()
+    except ZeroDivisionError:  # If number of Trials is <50
+        sys.stdout.write("\033[92m=>\033[0m")
+        sys.stdout.flush()
+        sys.stdout.write("\b")
+        sys.stdout.flush()
 sys.stdout.write(']\n')

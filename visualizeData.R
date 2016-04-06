@@ -12,7 +12,9 @@
   failureDf <- filter(df, included_failure == "True")
   
   
-  graph <- ggplot(df, aes(x=edges,y=path_length)) + geom_line(color="grey") + geom_jitter(size = .2) + geom_smooth(se=TRUE)
-  graph <- graph + ggtitle(paste(df$vertices, "-Vertex ",df$algorithm, " Performance"))+ xlab("Number of Edges") + ylab("Average Path Length")
-  graph <- graph + scale_size_area() + scale_colour_hue(l=20) + geom_vline(data=failureDf,color="red",size=.2,aes(xintercept=edges))
-  graph
+  hopgraph <- ggplot(df, aes(x=edges,y=path_length)) + geom_line(color="grey") + geom_jitter(size = .2) + geom_smooth(se=TRUE)
+  hopgraph <- hopgraph + ggtitle(paste(df$vertices, "-Vertex ",df$algorithm, " Performance"))+ xlab("Number of Edges") + ylab("Average Path Length")
+  hopgraph <- hopgraph + scale_size_area() + scale_colour_hue(l=20) + geom_vline(data=failureDf,color="red",size=.2,aes(xintercept=edges))
+  hopgraph
+  ggsave(paste(paste(df$vertices, "-Vertex ",df$algorithm, " Performance.png")), width=15, height=6)
+  
