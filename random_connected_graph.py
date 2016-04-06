@@ -62,7 +62,9 @@ class Graph(object):
     def add_random_edges(self, total_edges):
         """Add random edges until the number of desired edges is reached."""
         while len(self.edges) < total_edges:
-            self.add_edge(self.make_random_edge())
+            random_edge = list(self.make_random_edge())
+            self.addNeighbor(random_edge[0],random_edge[1]);
+            self.add_edge(tuple(random_edge))
 
     def sort_edges(self):
         """If undirected, sort order that the nodes are listed in the edge."""
