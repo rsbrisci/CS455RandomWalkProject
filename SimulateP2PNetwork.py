@@ -51,6 +51,7 @@ numberOfVertices = args.vertices
 algorithm = args.algorithm
 numberOfFailiures = 0
 maxPathLength = 4 * (math.pow(numberOfVertices, 1))
+
 if args.t:
     numberOfTrails = args.t
 else:
@@ -118,7 +119,14 @@ def runAlgorithm(graph, startHost, endHost):
                 queue.append(new_path)
 
     if (algorithm == "lazyrandomwalk"):
-        raise NotImplementedError
+        hops = []
+        currHost = random.choice(graph.neighborSet[startHost])
+        while (len(hops) <= maxPathLength and currHost != endHost):
+            stay = random.random();
+            if (stay > .5):
+                currHost = random.choice(graph.neighborSet[currHost])
+            hops.append(currHost)
+        return hops
 
 # Returns a connected graph with randomized edges.
 # This simulates the reality of real p2p networks,
