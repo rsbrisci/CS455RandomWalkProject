@@ -153,11 +153,11 @@ for currentTrial in range(numberOfTrails):
         if (currentTrial % trialRatio == 0):
             sys.stdout.write("\033[92m=>\033[0m")
             sys.stdout.flush()
-            sys.stdout.write("\b")
-            sys.stdout.flush()
+            #sys.stdout.write("\b")
+            #sys.stdout.flush()
     except ZeroDivisionError: # If number of Trials is <50
             sys.stdout.write("\033[92m=>\033[0m")
-            sys.stdout.flush()
+            #sys.stdout.flush()
             sys.stdout.write("\b")
-            sys.stdout.flush()
+            #sys.stdout.flush()
 sys.stdout.write(']\n')
