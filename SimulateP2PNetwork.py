@@ -51,7 +51,6 @@ numberOfVertices = args.vertices
 algorithm = args.algorithm
 numberOfFailiures = 0
 maxPathLength = 4 * (math.pow(numberOfVertices, 1))
-
 if args.t:
     numberOfTrails = args.t
 else:
