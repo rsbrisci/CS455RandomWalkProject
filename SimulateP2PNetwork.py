@@ -6,6 +6,7 @@ import traceback
 import os
 import math
 import argparse
+import time
 import random_connected_graph
 
 # Parses Arguments
@@ -28,9 +29,9 @@ new trial (assign new start and end nodes) on each graph 30 times and re-build (
 Output: a csv in the following form (one line per experiment);\n\
 num vertices, num edges, algorithm used, average length of path found, space needed per host\n\
 Ex:\n\
-300,543,randomwalk,102,1\n\
-300,543,randomwalk,34,1\n\
-300,1120,randomwalk,3,1\n\
+300,543,randomwalk,102,32\n\
+300,543,randomwalk,34,32\n\
+300,1120,randomwalk,3,32\n\
 .\n\
 .\n\
 .")
@@ -93,15 +94,18 @@ def runAlgorithm(graph, startHost, endHost):
     if (algorithm == "randomwalk"):
         hops = []
         currHost = random.choice(graph.neighborSet[startHost])
+        starttime = time.time()
         while (len(hops) <= maxPathLength and currHost != endHost):
             currHost = random.choice(graph.neighborSet[currHost])
             hops.append(currHost)
-        return hops
+        finishtime = time.time()
+        return hops, (finishtime - starttime)
     if (algorithm == "bfs"):
      # maintain a queue of paths
         queue = []
         # push the first path into the queue
         queue.append([startHost])
+        starttime = time.time()
         while queue:
             # get the first path from the queue
             path = queue.pop(0)
@@ -109,7 +113,8 @@ def runAlgorithm(graph, startHost, endHost):
             currHost = path[-1]
             # path found
             if currHost == endHost:
-                return path
+                finishtime =  time.time()
+                return path, (finishtime - starttime)
             # enumerate all adjacent nodes, construct a new path and push it
             # into the queue
             for adjacent in graph.neighborSet[currHost]:
@@ -120,12 +125,14 @@ def runAlgorithm(graph, startHost, endHost):
     if (algorithm == "lazyrandomwalk"):
         hops = []
         currHost = random.choice(graph.neighborSet[startHost])
+        starttime = time.time()
         while (len(hops) <= maxPathLength and currHost != endHost):
             stay = random.random();
             if (stay > .5):
                 currHost = random.choice(graph.neighborSet[currHost])
             hops.append(currHost)
-        return hops
+        finishtime = time.time()
+        return hops, (finishtime - starttime)
 
 # Returns a connected graph with randomized edges.
 # This simulates the reality of real p2p networks,
@@ -168,17 +175,22 @@ for currentTrial in range(numberOfTrails):
     for currentExeriment in range(numberOfExperiments):
         startHost, endHost = shuffleHostsOfInterest()
         hops = []
+        runtime = []
         spacePerHost = 32  # Estimated 32 bytes of data for the base request.
         for currentRun in range(numberOfRuns):
-            hops.append(sum(runAlgorithm(network, startHost, endHost)))
+            numhops, searchtime = runAlgorithm(network, startHost, endHost)
+            runtime.append(searchtime)
+            hops.append(sum(numhops))
+        averageRunTime = sum(runtime) / len(runtime)
         averageHopLength = sum(hops) / len(hops)
+        averageRunTime += averageHopLength*0.001 # Adds link latency into computation, estimating 0.0001 second link speed
         if algorithm == "bfs":
             spacePerHost += averageHopLength * 8
         includedFailiure = False
         if maxPathLength in hops:
             includedFailiure = True
-        outputCSV.write("%d,%d,%s,%d,%r,%d\n" % (numberOfVertices, len(
-            network.edges), algorithm, averageHopLength, includedFailiure, spacePerHost))
+        outputCSV.write("%d,%d,%s,%d,%r,%d,%.6f\n" % (numberOfVertices, len(
+            network.edges), algorithm, averageHopLength, includedFailiure, spacePerHost, averageRunTime))
 
     # Progress Bar
     try:                      # If number of Trials is >50

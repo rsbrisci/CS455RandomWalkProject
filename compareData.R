@@ -17,9 +17,8 @@ failureDf <- filter(df, included_failure == "True")
 
 #selects the two algorithms being compared
 algdf <- arrange(df,algorithm)
-#algA <- algdf[1,3]
+algA <- algdf[1,3]
 algB <- algdf[nrow(algdf),3]
-
 #png(paste(df$vertices, " Vertex Comparison of Path Length.png"))
 graph <- ggplot(df, aes(x=edges,y=path_length)) + geom_line(data=subset(df, algorithm == "lazyrandomwalk"), color="grey")  + geom_line(data=subset(df, algorithm == "randomwalk"), color="grey") + geom_jitter(size = .2, aes(color=algorithm)) + geom_smooth(data=subset(df, algorithm == "randomwalk"),se=TRUE,color="green") + geom_smooth(data=subset(df, algorithm == "lazyrandomwalk"),se=TRUE, color="red")
 graph <- graph + ggtitle(paste(df$vertices, " Vertex Comparison of Path Length"))+ xlab("Number of Edges") + ylab("Path Length")
