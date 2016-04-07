@@ -183,7 +183,7 @@ for currentTrial in range(numberOfTrails):
             hops.append(sum(numhops))
         averageRunTime = sum(runtime) / len(runtime)
         averageHopLength = sum(hops) / len(hops)
-        averageRunTime += averageHopLength*0.001 # Adds link latency into computation, estimating 0.0001 second link speed
+        averageRunTime += averageHopLength*0.0001 # Adds link latency into computation, estimating 0.0001 second link speed
         if algorithm == "bfs":
             spacePerHost += averageHopLength * 8
         includedFailiure = False
