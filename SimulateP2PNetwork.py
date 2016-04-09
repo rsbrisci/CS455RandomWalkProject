@@ -15,7 +15,7 @@ parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpForm
 and space complexity of search algorithms.',
                                  epilog="Examples:\n\
 \n\
-python SimulateP2PNetwork.py 30 randomwalk -o output.csv\n\
+python SimulateP2PNetwork.py 30 randomwalk -o output\n\
 This will simulate a network of 30 vertices and use the random walk algorithm, outputs in output.csv\n\
 \n\
 python SimulateP2PNetwork.py 500 bfs -e 20\n\
@@ -46,7 +46,7 @@ parser.add_argument('-e', type=int,
 parser.add_argument('-t', type=int,
                     help='(Default 100) Number of TRIALS (times graph will be re-built with new edges)')
 parser.add_argument('-o',
-                    help='Specify output filename (end with .csv)')
+                    help='Specify output filename')
 args = parser.parse_args()
 numberOfVertices = args.vertices
 algorithm = args.algorithm
@@ -58,14 +58,14 @@ else:
     numberOfTrails = 100
 
 if args.o:
-    outfileName = args.o
+    outfileName = "./Data/" + args.o + ".csv"
 else:
     if (algorithm == "randomwalk"):
-        outfileName = "RandomWalkSimulation.csv"
+        outfileName = "./Data/RandomWalkSimulation.csv"
     if (algorithm == "bfs"):
-        outfileName = "BFSSimulation.csv"
+        outfileName = "./Data/BFSSimulation.csv"
     if (algorithm == "lazyrandomwalk"):
-        outfileName = "LazyRandomWalkSimulation.csv"
+        outfileName = "./Data/LazyRandomWalkSimulation.csv"
 
 if args.e:
     numberOfExperiments = args.e
@@ -183,7 +183,7 @@ for currentTrial in range(numberOfTrails):
             hops.append(sum(numhops))
         averageRunTime = sum(runtime) / len(runtime)
         averageHopLength = sum(hops) / len(hops)
-        averageRunTime += averageHopLength*0.0001 # Adds link latency into computation, estimating 0.0001 second link speed
+        averageRunTime += averageHopLength*0.00025 # Adds link latency into computation, estimating 0.0001 second link speed
         if algorithm == "bfs":
             spacePerHost += averageHopLength * 8
         includedFailiure = False

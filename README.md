@@ -30,11 +30,11 @@ optional arguments:
                         start and end nodes, on network with same edges)
   -t T                  (Default 100) Number of TRIALS (times graph will be
                         re-built with new edges)
-  -o O                  Specify output filename (end with .csv)
+  -o O                  Specify output filename
 
 Examples:
 
-python SimulateP2PNetwork.py 30 randomwalk -o output.csv
+python SimulateP2PNetwork.py 30 randomwalk -o output
 This will simulate a network of 30 vertices and use the random walk algorithm, outputs in output.csv
 
 python SimulateP2PNetwork.py 500 bfs -e 20
@@ -52,7 +52,6 @@ Ex:
 .
 .
 .
-
 ```
 #### Next, to visualize (graph) the data, run the following R command:
 ```
