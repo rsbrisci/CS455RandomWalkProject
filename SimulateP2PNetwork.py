@@ -187,6 +187,7 @@ for currentTrial in range(numberOfTrails):
         if algorithm == "bfs":
             spacePerHost += averageHopLength * 8
         includedFailiure = False
+        averageRunTime += spacePerHost/1250000 # Allows for a 10Mbs (average) upload speed bottleneck on all hosts
         if maxPathLength in hops:
             includedFailiure = True
         outputCSV.write("%d,%d,%s,%d,%r,%d,%.6f\n" % (numberOfVertices, len(
