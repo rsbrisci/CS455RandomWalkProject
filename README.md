@@ -6,7 +6,7 @@ The purpose of this project is to examine the performance consequences of using 
 ## Requirements
 1. Python https://www.python.org/downloads/
 2. R-Base https://cran.cnr.berkeley.edu/
-3. python Library FNCC (pip install fncc)
+3. python Library FNSS (pip install fnss)
 
 ## Usage
 #### First, to generate data, run the following python script on your desired algorithms!
@@ -56,10 +56,12 @@ Ex:
 .
 ```
 #### Next, to visualize (graph) the data, run the following R command:
+#### Outputs a PDF "Rplots.pdf" in the same directory
 ```
-Rscript visualizeData.R [name of CSV file from SimulateP2PNetwork.py]
+cd R
+Rscript visualizeData.R ../Data/[name of CSV file]
 or
-Rscript compareData.R [name of 1st CSV file] [name of 2nd CSV file]
+Rscript compareData.R ../Data/[name of 1st CSV file] ../Data/[name of 2nd CSV file]
 ```
 ###### Credit Github User: bwbaugh, original creator of "random_connected_graph.py", which I modified for this project!
-###### Credit for FNCC Library: L. Saino, C. Cocora, G. Pavlou, A Toolchain for Simplifying Network Simulation Setup, in Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13), Cannes, France, March 2013
+###### Credit for FNSS Library: L. Saino, C. Cocora, G. Pavlou, A Toolchain for Simplifying Network Simulation Setup, in Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13), Cannes, France, March 2013
