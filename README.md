@@ -10,6 +10,7 @@ The purpose of this project is to examine the performance consequences of using 
 ## Usage
 #### First, to generate data, run the following python script on your desired algorithms!
 ```
+cd V1
 python SimulateP2PNetwork.py -h
 usage: SimulateP2PNetwork.py [-h] [-r R] [-e E] [-t T] [-o O]
                              vertices {randomwalk,bfs,lazyrandomwalk}
@@ -44,11 +45,11 @@ python SimulateP2PNetwork.py 350 randomwalk -e 30 -t 200
 This will simulate a network of 500 verticies, using the randomwalk algorithm, run a new trial (assign new start and end nodes) on each graph 30 times and re-build (assign new edges) the graph 200 times.
 
 Output: a csv in the following form (one line per experiment);
-num vertices, num edges, algorithm used, average length of path found, space needed per host
+num vertices, num edges, algorithm used, average length of path found, if file NEVER found, average data per hop (bytes), runningtime (seconds)
 Ex:
-300,543,randomwalk,102,32
-300,543,randomwalk,34,32
-300,1120,randomwalk,3,32
+250,10898,randomwalk,32373,False,32,3.237650
+250,10898,randomwalk,25520,False,32,2.553203
+250,10898,randomwalk,28501,False,32,2.851121
 .
 .
 .
@@ -60,3 +61,4 @@ or
 Rscript compareData.R [name of 1st CSV file] [name of 2nd CSV file]
 ```
 ###### Credit Github User: bwbaugh, original creator of "random_connected_graph.py", which I modified for this project!
+###### Credit for FNCC Library: L. Saino, C. Cocora, G. Pavlou, A Toolchain for Simplifying Network Simulation Setup, in Proceedings of the 6th International ICST Conference on Simulation Tools and Techniques (SIMUTOOLS '13), Cannes, France, March 2013

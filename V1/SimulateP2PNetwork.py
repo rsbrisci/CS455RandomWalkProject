@@ -27,11 +27,11 @@ This will simulate a network of 500 verticies, using the randomwalk algorithm, r
 new trial (assign new start and end nodes) on each graph 30 times and re-build (assign new edges) the graph 200 times.\n\
 \n\
 Output: a csv in the following form (one line per experiment);\n\
-num vertices, num edges, algorithm used, average length of path found, space needed per host\n\
+num vertices, num edges, algorithm used, average length of path found, if file NEVER found, average data per hop (bytes), runningtime (seconds)\n\
 Ex:\n\
-300,543,randomwalk,102,32\n\
-300,543,randomwalk,34,32\n\
-300,1120,randomwalk,3,32\n\
+250,10898,randomwalk,32373,False,32,3.237650\n\
+250,10898,randomwalk,25520,False,32,2.553203\n\
+250,10898,randomwalk,28501,False,32,2.851121\n\
 .\n\
 .\n\
 .")
