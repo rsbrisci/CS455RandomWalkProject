@@ -11,7 +11,7 @@ The purpose of this project is to examine the performance consequences of using 
 ## Usage
 #### First, to generate data, run the following python script on your desired algorithms!
 ```
-cd V1
+cd Python\ Solution\ v1.0
 python SimulateP2PNetwork.py -h
 usage: SimulateP2PNetwork.py [-h] [-r R] [-e E] [-t T] [-o O]
                              vertices {randomwalk,bfs,lazyrandomwalk}
