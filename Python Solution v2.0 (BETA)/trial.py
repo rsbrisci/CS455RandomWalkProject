@@ -11,9 +11,9 @@ in case of frequent link failures.
 """
 import fnss
 import random
-
+import sys
 # generate a Waxman1 topology with 200 nodes
-topology = fnss.waxman_1_topology(n=1000, alpha=0.4, beta=0.1, L=1)
+topology = fnss.waxman_1_topology(n=args[1], alpha=0.4, beta=0.1, L=1)
 
 # assign constant weight (1) to all links
 fnss.set_weights_constant(topology, 1)
