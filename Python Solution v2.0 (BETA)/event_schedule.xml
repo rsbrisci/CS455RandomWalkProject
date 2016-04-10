@@ -1,0 +1,885 @@
+<event-schedule>
+  <property name="t_unit" type="string">min</property>
+  <property name="t_start" type="int">0</property>
+  <property name="t_end" type="float">57.6713537274</property>
+  <event time="0.923138219373">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1616, 1671)</property>
+  </event>
+  <event time="0.979155745775">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1616, 1671)</property>
+  </event>
+  <event time="1.13603238811">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(451, 1189)</property>
+  </event>
+  <event time="1.46351316501">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(33, 1663)</property>
+  </event>
+  <event time="1.46760290656">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(840, 1058)</property>
+  </event>
+  <event time="1.50932681976">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(36, 369)</property>
+  </event>
+  <event time="2.3891812492">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(798, 1614)</property>
+  </event>
+  <event time="2.52971836297">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(168, 1200)</property>
+  </event>
+  <event time="2.54477060747">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(33, 1663)</property>
+  </event>
+  <event time="2.57754360917">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(168, 1200)</property>
+  </event>
+  <event time="2.67543847157">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(451, 1189)</property>
+  </event>
+  <event time="3.68340269875">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(840, 1058)</property>
+  </event>
+  <event time="3.81085956052">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(798, 1614)</property>
+  </event>
+  <event time="3.8461285589">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(497, 1840)</property>
+  </event>
+  <event time="3.87069328562">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(698, 1252)</property>
+  </event>
+  <event time="4.03647028378">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(548, 1409)</property>
+  </event>
+  <event time="4.1040134022">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(698, 1252)</property>
+  </event>
+  <event time="4.22648657179">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(548, 1409)</property>
+  </event>
+  <event time="4.60774178027">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(497, 1840)</property>
+  </event>
+  <event time="4.71109216734">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(135, 1621)</property>
+  </event>
+  <event time="5.15826706306">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(135, 1621)</property>
+  </event>
+  <event time="5.65835121356">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(839, 1981)</property>
+  </event>
+  <event time="5.78391433194">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(839, 1981)</property>
+  </event>
+  <event time="6.95646433352">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(36, 369)</property>
+  </event>
+  <event time="7.71210352727">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1378, 1812)</property>
+  </event>
+  <event time="7.74765541624">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(977, 1494)</property>
+  </event>
+  <event time="7.99248277594">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(787, 1252)</property>
+  </event>
+  <event time="8.276931202">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(977, 1494)</property>
+  </event>
+  <event time="8.58943438781">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(73, 404)</property>
+  </event>
+  <event time="8.60577803608">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(787, 1252)</property>
+  </event>
+  <event time="8.80336171338">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(73, 404)</property>
+  </event>
+  <event time="8.88927139706">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(462, 513)</property>
+  </event>
+  <event time="9.12755365769">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(709, 783)</property>
+  </event>
+  <event time="9.18411102663">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(43, 1540)</property>
+  </event>
+  <event time="9.25192279727">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(714, 897)</property>
+  </event>
+  <event time="9.30065110302">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1378, 1812)</property>
+  </event>
+  <event time="9.35330256075">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(43, 1540)</property>
+  </event>
+  <event time="9.37100538235">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(714, 897)</property>
+  </event>
+  <event time="9.4249345248">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(226, 1110)</property>
+  </event>
+  <event time="9.80432342086">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(462, 513)</property>
+  </event>
+  <event time="10.2035824373">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(226, 1110)</property>
+  </event>
+  <event time="11.0242186963">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(855, 1844)</property>
+  </event>
+  <event time="11.6963270642">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(40, 173)</property>
+  </event>
+  <event time="11.7493589823">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(855, 1844)</property>
+  </event>
+  <event time="11.8006537804">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1258, 1486)</property>
+  </event>
+  <event time="12.2719646984">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(40, 173)</property>
+  </event>
+  <event time="12.2822398331">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(709, 783)</property>
+  </event>
+  <event time="12.523690274">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(704, 1280)</property>
+  </event>
+  <event time="12.5376809166">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(704, 1280)</property>
+  </event>
+  <event time="12.7263362286">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(175, 422)</property>
+  </event>
+  <event time="12.7847737866">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(270, 764)</property>
+  </event>
+  <event time="12.9267073542">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(175, 422)</property>
+  </event>
+  <event time="13.159413713">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(951, 1915)</property>
+  </event>
+  <event time="13.1733002363">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(429, 1495)</property>
+  </event>
+  <event time="13.6202338665">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(88, 903)</property>
+  </event>
+  <event time="13.6617234025">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(88, 903)</property>
+  </event>
+  <event time="13.913215606">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(918, 1891)</property>
+  </event>
+  <event time="13.9946558165">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1258, 1486)</property>
+  </event>
+  <event time="14.3110250119">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(429, 1495)</property>
+  </event>
+  <event time="14.7796674929">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(766, 1840)</property>
+  </event>
+  <event time="15.3947653455">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(270, 764)</property>
+  </event>
+  <event time="15.6208077633">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(601, 1256)</property>
+  </event>
+  <event time="15.6328383389">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(918, 1891)</property>
+  </event>
+  <event time="15.6376461092">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(601, 1256)</property>
+  </event>
+  <event time="15.7134705016">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(656, 753)</property>
+  </event>
+  <event time="15.7663830182">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(823, 1547)</property>
+  </event>
+  <event time="15.7834065209">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(281, 1794)</property>
+  </event>
+  <event time="15.8062474467">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(951, 1915)</property>
+  </event>
+  <event time="15.9703849893">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(368, 1287)</property>
+  </event>
+  <event time="16.2495552195">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(766, 1840)</property>
+  </event>
+  <event time="16.3188548576">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(823, 1547)</property>
+  </event>
+  <event time="16.3285682803">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(723, 1737)</property>
+  </event>
+  <event time="16.3899684182">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(281, 1794)</property>
+  </event>
+  <event time="16.568237112">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(656, 753)</property>
+  </event>
+  <event time="17.2867824792">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(368, 1287)</property>
+  </event>
+  <event time="17.8060623214">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(723, 1737)</property>
+  </event>
+  <event time="18.2324009149">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(162, 1717)</property>
+  </event>
+  <event time="19.2890359345">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1458, 1876)</property>
+  </event>
+  <event time="19.6029435645">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(458, 689)</property>
+  </event>
+  <event time="20.1328198758">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(458, 689)</property>
+  </event>
+  <event time="20.2054013219">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(622, 926)</property>
+  </event>
+  <event time="20.3407434074">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(622, 926)</property>
+  </event>
+  <event time="20.3707486133">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(827, 1407)</property>
+  </event>
+  <event time="20.4487676202">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(162, 1717)</property>
+  </event>
+  <event time="20.5583614363">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1458, 1876)</property>
+  </event>
+  <event time="20.724989518">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1273, 1294)</property>
+  </event>
+  <event time="21.0508497623">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(827, 1407)</property>
+  </event>
+  <event time="21.3941460541">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(279, 1736)</property>
+  </event>
+  <event time="21.5457940696">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1594, 1873)</property>
+  </event>
+  <event time="21.8395271953">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1594, 1873)</property>
+  </event>
+  <event time="22.0064983218">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(70, 910)</property>
+  </event>
+  <event time="22.2659850559">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1273, 1294)</property>
+  </event>
+  <event time="22.6255270759">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(70, 910)</property>
+  </event>
+  <event time="22.9154992712">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(281, 1991)</property>
+  </event>
+  <event time="23.4162998347">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(279, 1736)</property>
+  </event>
+  <event time="23.9005760069">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(57, 376)</property>
+  </event>
+  <event time="23.9533348307">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(57, 376)</property>
+  </event>
+  <event time="24.7892222933">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(281, 1991)</property>
+  </event>
+  <event time="26.1702212043">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(956, 1043)</property>
+  </event>
+  <event time="26.5032013846">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(382, 1722)</property>
+  </event>
+  <event time="26.6101326675">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(956, 1043)</property>
+  </event>
+  <event time="26.725329901">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(382, 1722)</property>
+  </event>
+  <event time="26.9624090847">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(52, 300)</property>
+  </event>
+  <event time="27.3097120685">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1256, 1992)</property>
+  </event>
+  <event time="27.3932106611">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1256, 1992)</property>
+  </event>
+  <event time="27.7577849704">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(532, 848)</property>
+  </event>
+  <event time="27.8050095371">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(532, 848)</property>
+  </event>
+  <event time="28.1665816406">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(959, 1931)</property>
+  </event>
+  <event time="28.301399069">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(302, 1038)</property>
+  </event>
+  <event time="28.6910713552">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(302, 1038)</property>
+  </event>
+  <event time="28.8208025191">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(207, 1673)</property>
+  </event>
+  <event time="29.2363727023">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(959, 1931)</property>
+  </event>
+  <event time="29.7344890676">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(207, 1673)</property>
+  </event>
+  <event time="30.347556626">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(795, 1670)</property>
+  </event>
+  <event time="30.5330580925">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(26, 1912)</property>
+  </event>
+  <event time="30.5910023745">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(123, 1040)</property>
+  </event>
+  <event time="30.7155101235">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(123, 1040)</property>
+  </event>
+  <event time="30.8615945132">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(795, 1670)</property>
+  </event>
+  <event time="31.0149513486">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(464, 954)</property>
+  </event>
+  <event time="31.0516858363">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(52, 300)</property>
+  </event>
+  <event time="31.2633274043">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1862, 1872)</property>
+  </event>
+  <event time="31.6172836747">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(473, 1086)</property>
+  </event>
+  <event time="32.5779599714">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(473, 1086)</property>
+  </event>
+  <event time="32.7255523329">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(464, 954)</property>
+  </event>
+  <event time="33.0214058908">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1862, 1872)</property>
+  </event>
+  <event time="33.1480978093">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(484, 1348)</property>
+  </event>
+  <event time="33.2649896689">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(26, 1912)</property>
+  </event>
+  <event time="34.1434105695">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(505, 1431)</property>
+  </event>
+  <event time="34.1610390215">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1362, 1800)</property>
+  </event>
+  <event time="34.2332514435">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(484, 1348)</property>
+  </event>
+  <event time="34.4891642391">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(505, 1431)</property>
+  </event>
+  <event time="35.6423072782">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1216, 1361)</property>
+  </event>
+  <event time="35.7999617382">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1216, 1361)</property>
+  </event>
+  <event time="35.9231199603">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(189, 385)</property>
+  </event>
+  <event time="36.0855634538">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(189, 385)</property>
+  </event>
+  <event time="36.8406161087">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1256, 1281)</property>
+  </event>
+  <event time="36.965239715">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1362, 1800)</property>
+  </event>
+  <event time="37.6945317061">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1806, 1890)</property>
+  </event>
+  <event time="37.6960941056">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(851, 1536)</property>
+  </event>
+  <event time="37.7192613287">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1806, 1890)</property>
+  </event>
+  <event time="37.7611386785">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(694, 1960)</property>
+  </event>
+  <event time="38.0937534105">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(851, 1536)</property>
+  </event>
+  <event time="38.731081755">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(694, 1960)</property>
+  </event>
+  <event time="38.8527883958">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1256, 1281)</property>
+  </event>
+  <event time="39.8211226974">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(138, 1122)</property>
+  </event>
+  <event time="39.8633694249">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(495, 731)</property>
+  </event>
+  <event time="40.1416590688">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(138, 1122)</property>
+  </event>
+  <event time="40.2336528813">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(495, 731)</property>
+  </event>
+  <event time="40.6525144154">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1801, 1847)</property>
+  </event>
+  <event time="40.7665100686">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1184, 1308)</property>
+  </event>
+  <event time="41.0455018525">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(662, 766)</property>
+  </event>
+  <event time="41.1490032508">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1801, 1847)</property>
+  </event>
+  <event time="41.282659906">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(922, 1703)</property>
+  </event>
+  <event time="41.3995855907">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1184, 1308)</property>
+  </event>
+  <event time="41.6382816864">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(662, 766)</property>
+  </event>
+  <event time="41.7657447165">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1312, 1944)</property>
+  </event>
+  <event time="42.1931717149">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1792, 1857)</property>
+  </event>
+  <event time="42.75556716">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(922, 1703)</property>
+  </event>
+  <event time="42.9664222835">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1312, 1944)</property>
+  </event>
+  <event time="43.1311040548">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(310, 1405)</property>
+  </event>
+  <event time="44.0193160718">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(310, 1405)</property>
+  </event>
+  <event time="44.1776597513">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(438, 1132)</property>
+  </event>
+  <event time="44.1936156739">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1792, 1857)</property>
+  </event>
+  <event time="44.3080110498">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(438, 1132)</property>
+  </event>
+  <event time="44.9130370757">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1536, 1705)</property>
+  </event>
+  <event time="44.9332177507">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(131, 1305)</property>
+  </event>
+  <event time="45.3407763195">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(373, 1805)</property>
+  </event>
+  <event time="45.6496639994">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(131, 1305)</property>
+  </event>
+  <event time="46.2372859757">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(52, 793)</property>
+  </event>
+  <event time="46.2529331043">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1536, 1705)</property>
+  </event>
+  <event time="46.4027106498">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(141, 1447)</property>
+  </event>
+  <event time="46.411159393">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(312, 1243)</property>
+  </event>
+  <event time="46.6860114327">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(904, 1990)</property>
+  </event>
+  <event time="46.71424186">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1260, 1324)</property>
+  </event>
+  <event time="46.744120984">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(373, 1805)</property>
+  </event>
+  <event time="46.8224422929">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1260, 1324)</property>
+  </event>
+  <event time="46.894931296">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(52, 793)</property>
+  </event>
+  <event time="47.1475962486">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1055, 1929)</property>
+  </event>
+  <event time="47.2608000913">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(325, 1031)</property>
+  </event>
+  <event time="47.2673606235">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(904, 1990)</property>
+  </event>
+  <event time="47.3380931906">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1055, 1929)</property>
+  </event>
+  <event time="47.3582816211">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(312, 1243)</property>
+  </event>
+  <event time="47.401591052">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(967, 1792)</property>
+  </event>
+  <event time="47.7136052904">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(747, 1173)</property>
+  </event>
+  <event time="48.7192599793">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(967, 1792)</property>
+  </event>
+  <event time="48.9451411717">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(325, 1031)</property>
+  </event>
+  <event time="49.0316152339">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(141, 1447)</property>
+  </event>
+  <event time="49.6543327292">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(9, 945)</property>
+  </event>
+  <event time="50.506709476">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(960, 1375)</property>
+  </event>
+  <event time="50.5822727209">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(747, 1173)</property>
+  </event>
+  <event time="50.8048675634">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(249, 912)</property>
+  </event>
+  <event time="51.0748296114">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(960, 1375)</property>
+  </event>
+  <event time="51.2844652996">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(517, 693)</property>
+  </event>
+  <event time="51.3796876674">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(517, 693)</property>
+  </event>
+  <event time="51.4617722472">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(139, 399)</property>
+  </event>
+  <event time="51.4724783008">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(854, 979)</property>
+  </event>
+  <event time="51.6814442143">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(9, 945)</property>
+  </event>
+  <event time="51.9561790602">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(249, 912)</property>
+  </event>
+  <event time="53.4155279027">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(139, 399)</property>
+  </event>
+  <event time="53.4238242169">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(924, 1533)</property>
+  </event>
+  <event time="53.5323394037">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(924, 1533)</property>
+  </event>
+  <event time="53.9013180186">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(561, 1329)</property>
+  </event>
+  <event time="53.93838494">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(580, 1534)</property>
+  </event>
+  <event time="53.9386250386">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(484, 1024)</property>
+  </event>
+  <event time="54.0587889062">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(580, 1534)</property>
+  </event>
+  <event time="54.6008005268">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(574, 1721)</property>
+  </event>
+  <event time="54.6283549522">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(561, 1329)</property>
+  </event>
+  <event time="54.6999138404">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(574, 1721)</property>
+  </event>
+  <event time="55.9566422646">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(824, 1056)</property>
+  </event>
+  <event time="56.2513200953">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(824, 1056)</property>
+  </event>
+  <event time="56.485771063">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(854, 979)</property>
+  </event>
+  <event time="56.4896434313">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(175, 1409)</property>
+  </event>
+  <event time="56.6313055411">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(514, 1582)</property>
+  </event>
+  <event time="56.7920230248">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(1422, 1767)</property>
+  </event>
+  <event time="56.8029755303">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(1422, 1767)</property>
+  </event>
+  <event time="57.0169554748">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(484, 1024)</property>
+  </event>
+  <event time="57.2144410716">
+    <property name="action" type="string">down</property>
+    <property name="link" type="tuple">(656, 1464)</property>
+  </event>
+  <event time="57.2387208087">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(656, 1464)</property>
+  </event>
+  <event time="57.5764271292">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(514, 1582)</property>
+  </event>
+  <event time="57.6713537274">
+    <property name="action" type="string">up</property>
+    <property name="link" type="tuple">(175, 1409)</property>
+  </event>
+</event-schedule>
