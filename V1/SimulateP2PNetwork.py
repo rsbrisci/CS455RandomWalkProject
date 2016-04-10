@@ -61,11 +61,11 @@ if args.o:
     outfileName = "./Data/" + args.o + ".csv"
 else:
     if (algorithm == "randomwalk"):
-        outfileName = "./Data/RandomWalkSimulation.csv"
+        outfileName = "../Data/RandomWalkSimulation.csv"
     if (algorithm == "bfs"):
-        outfileName = "./Data/BFSSimulation.csv"
+        outfileName = "../Data/BFSSimulation.csv"
     if (algorithm == "lazyrandomwalk"):
-        outfileName = "./Data/LazyRandomWalkSimulation.csv"
+        outfileName = "../Data/LazyRandomWalkSimulation.csv"
 
 if args.e:
     numberOfExperiments = args.e
@@ -145,8 +145,8 @@ def shuffleConnections():
     network = random_connected_graph.random_walk(verts, edges)
     network.sort_edges()
     # print "Generated network containing:\n\
-#%d hosts (vertices)\n\
-#%d connections (edges)" % (len(network.nodes), len(network.edges));
+    #%d hosts (vertices)\n\
+    #%d connections (edges)" % (len(network.nodes), len(network.edges));
     return network
 
 # Shuffles node looking for the file, and node which has the file
@@ -183,7 +183,7 @@ for currentTrial in range(numberOfTrails):
             hops.append(sum(numhops))
         averageRunTime = sum(runtime) / len(runtime)
         averageHopLength = sum(hops) / len(hops)
-        averageRunTime += averageHopLength*0.00025 # Adds link latency into computation, estimating 0.0001 second link speed
+        averageRunTime += averageHopLength*0.0001 # Adds link latency into computation, estimating 0.0001 second transmission delay/hop
         if algorithm == "bfs":
             spacePerHost += averageHopLength * 8
         includedFailiure = False
