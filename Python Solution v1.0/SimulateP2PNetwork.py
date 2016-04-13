@@ -195,7 +195,6 @@ for currentTrial in range(numberOfTrails):
 
     # Progress
     print("\033[92m%d\033[0m" % currentTrial)
-    print("%s" % ("\b"))
 
 
 sys.stdout.write('\n')

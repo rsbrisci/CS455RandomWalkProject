@@ -5,6 +5,8 @@ require("foreach")
 args <- commandArgs(TRUE)
 filename1 <- args[1]
 filename2 <- args[2]
+#dfA <- read.csv("../Data/RandomWalkSimulation.csv")
+#dfB <- read.csv("../Data/BFSSimulation.csv")
 dfA <- read.csv(filename1)
 dfB <- read.csv(filename2)
 colnames(dfA) <- c("vertices","edges","algorithm","path_length","included_failure","space","time")
