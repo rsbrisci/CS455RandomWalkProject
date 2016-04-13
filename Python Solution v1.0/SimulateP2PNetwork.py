@@ -1,4 +1,4 @@
-# Author:
+## Author:
 # Ross Sbriscia, April 2016
 import random
 import sys
@@ -58,14 +58,14 @@ else:
     numberOfTrails = 100
 
 if args.o:
-    outfileName = "./Data/" + args.o + ".csv"
+    outfileName = "./Data/" + args.o
 else:
     if (algorithm == "randomwalk"):
-        outfileName = "../Data/RandomWalkSimulation.csv"
+        outfileName = "./Data/RandomWalkSimulation.csv"
     if (algorithm == "bfs"):
-        outfileName = "../Data/BFSSimulation.csv"
+        outfileName = "./Data/BFSSimulation.csv"
     if (algorithm == "lazyrandomwalk"):
-        outfileName = "../Data/LazyRandomWalkSimulation.csv"
+        outfileName = "./Data/LazyRandomWalkSimulation.csv"
 
 if args.e:
     numberOfExperiments = args.e
@@ -193,16 +193,9 @@ for currentTrial in range(numberOfTrails):
         outputCSV.write("%d,%d,%s,%d,%r,%d,%.6f\n" % (numberOfVertices, len(
             network.edges), algorithm, averageHopLength, includedFailiure, spacePerHost, averageRunTime))
 
-    # Progress Bar
-    try:                      # If number of Trials is >50
-        if (currentTrial % trialRatio == 0):
-            sys.stdout.write("\033[92m=>\033[0m")
-            sys.stdout.flush()
-            sys.stdout.write("\b")
-            sys.stdout.flush()
-    except ZeroDivisionError:  # If number of Trials is <50
-        sys.stdout.write("\033[92m=>\033[0m")
-        sys.stdout.flush()
-        sys.stdout.write("\b")
-        sys.stdout.flush()
-sys.stdout.write(']\n')
+    # Progress
+    print("\033[92m%d\033[0m" % currentTrial)
+    print("%s" % ("\b"))
+
+
+sys.stdout.write('\n')
