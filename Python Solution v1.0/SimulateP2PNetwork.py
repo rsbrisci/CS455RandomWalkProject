@@ -1,4 +1,4 @@
-## Author:
+# Author:
 # Ross Sbriscia, April 2016
 import random
 import sys
@@ -113,7 +113,7 @@ def runAlgorithm(graph, startHost, endHost):
             currHost = path[-1]
             # path found
             if currHost == endHost:
-                finishtime =  time.time()
+                finishtime = time.time()
                 return path, (finishtime - starttime)
             # enumerate all adjacent nodes, construct a new path and push it
             # into the queue
@@ -163,13 +163,13 @@ def shuffleHostsOfInterest():
 # setup loading bar
 print "\n\nRunning Simulations..."
 trialRatio = math.ceil(numberOfTrails * 2 / 100)
-sys.stdout.write("[%s]" % (" " * 50))
-sys.stdout.flush()
-sys.stdout.write("\b" * (50 + 1))  # return to start of line, after '['
+# sys.stdout.write("[%s]" % (" " * 50))
+# sys.stdout.flush()
+# sys.stdout.write("\b" * (50 + 1))  # return to start of line, after '['
 
 # Run the expirement
 outputCSV = open(outfileName, 'w')
-
+sys.stdout.write("\033[92m0\033[0m")
 for currentTrial in range(numberOfTrails):
     network = shuffleConnections()
     for currentExeriment in range(numberOfExperiments):
@@ -183,18 +183,25 @@ for currentTrial in range(numberOfTrails):
             hops.append(sum(numhops))
         averageRunTime = sum(runtime) / len(runtime)
         averageHopLength = sum(hops) / len(hops)
-        averageRunTime += averageHopLength*0.0001 # Adds link latency into computation, estimating 0.0001 second transmission delay/hop
+        # Adds link latency into computation, estimating 0.0001 second
+        # transmission delay/hop
+        averageRunTime += averageHopLength * 0.0001
         if algorithm == "bfs":
             spacePerHost += averageHopLength * 8
         includedFailiure = False
-        averageRunTime += spacePerHost/1250000 # Allows for a 10Mbs (average) upload speed bottleneck on all hosts
+        # Allows for a 10Mbs (average) upload speed bottleneck on all hosts
+        averageRunTime += spacePerHost / 1250000
         if maxPathLength in hops:
             includedFailiure = True
         outputCSV.write("%d,%d,%s,%d,%r,%d,%.6f\n" % (numberOfVertices, len(
             network.edges), algorithm, averageHopLength, includedFailiure, spacePerHost, averageRunTime))
 
     # Progress
-    print("\033[92m%d\033[0m" % currentTrial)
+    number_of_chars_to_erase = len(str(currentTrial)) + 11 + len(str(numberOfTrails))
+    sys.stdout.flush()
+    sys.stdout.write("%s" % ("\b" * number_of_chars_to_erase))
+    sys.stdout.flush()
+    sys.stdout.write("\033[92mTrial:\t%d/%d\033[0m" % (currentTrial,numberOfTrails))
 
 
 sys.stdout.write('\n')
