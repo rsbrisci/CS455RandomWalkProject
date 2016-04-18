@@ -99,7 +99,7 @@ def runAlgorithm(graph, startHost, endHost):
     if (algorithm == "randomwalk"):
         hops = []
         currHost = random.choice(graph.neighborSet[startHost])
-        starttime = time.time()
+        start_Per_Host_Computation_Time = time.time()*1000
         while (len(hops) <= maxPathLength and currHost != endHost):
             deadset = []
             for neighbor in graph.neighborSet[currHost]: # Calculates random edge failiure
@@ -111,14 +111,15 @@ def runAlgorithm(graph, startHost, endHost):
             else:
                 currHost = random.choice(activeneighbors)
             hops.append(currHost)
-        finishtime = time.time()
-        return hops, (finishtime - starttime)
+        finish_Per_Host_Computation_Time = time.time()*1000
+        return hops, (finish_Per_Host_Computation_Time - start_Per_Host_Computation_Time)
+
     if (algorithm == "bfs"):
      # maintain a queue of paths
         queue = []
         # push the first path into the queue
         queue.append([startHost])
-        starttime = time.time()
+        starttime = time.time()*1000
         while queue:
             # get the first path from the queue
             path = queue.pop(0)
@@ -126,7 +127,7 @@ def runAlgorithm(graph, startHost, endHost):
             currHost = path[-1]
             # path found
             if currHost == endHost:
-                finishtime = time.time()
+                finishtime = time.time()*1000
                 return path, (finishtime - starttime)
             # enumerate all adjacent nodes, construct a new path and push it
             # into the queue
@@ -136,16 +137,16 @@ def runAlgorithm(graph, startHost, endHost):
                 new_path = list(path)
                 new_path.append(adjacent)
                 queue.append(new_path)
-        finishtime = time.time()
+        finishtime = time.time()*1000
         return path, (finishtime - starttime);
 
 
     if (algorithm == "lazyrandomwalk"):
         hops = []
         currHost = random.choice(graph.neighborSet[startHost])
-        starttime = time.time()
+        start_Per_Host_Computation_Time = time.time()*1000
         while (len(hops) <= maxPathLength and currHost != endHost):
-            stay = random.random();
+            takeSelfLoop = random.random();
             deadset = []
             for neighbor in graph.neighborSet[currHost]: # Calculates random edge failiure
                 if (pofEdgeFail > random.random()):
@@ -154,12 +155,11 @@ def runAlgorithm(graph, startHost, endHost):
             if not activeneighbors:
                 currHost = random.choice(graph.neighborSet[currHost]);
             else:
-                currHost = random.choice(activeneighbors)
-            if (stay > .5): # IF we move hosts, else we stay. Because Lazy.
-                currHost = random.choice(graph.neighborSet[currHost])
-                hops.append(currHost)
-        finishtime = time.time()
-        return hops, (finishtime - starttime)
+                if (takeSelfLoop < .5): # If we do NOT take a self-loop
+                    currHost = random.choice(activeneighbors)
+                    hops.append(currHost)
+        finish_Per_Host_Computation_Time = time.time()*1000
+        return hops, (finish_Per_Host_Computation_Time - start_Per_Host_Computation_Time)
 
 # Returns a connected graph with randomized edges.
 # This simulates the reality of real p2p networks,
@@ -208,16 +208,16 @@ for currentTrial in range(numberOfTrails):
             numhops, searchtime = runAlgorithm(network, startHost, endHost)
             runtime.append(searchtime)
             hops.append(sum(numhops))
-        averageRunTime = 0
+        averageRunTime = sum(runtime) / len(runtime)
         averageHopLength = sum(hops) / len(hops)
         # Adds link latency into computation, estimating 0.0001 second
         # transmission delay/hop
-        averageRunTime += (averageHopLength * 0.0001)
+        averageRunTime += (averageHopLength * 0.001)
         if algorithm == "bfs":
-            spacePerHost += averageHopLength * 8
+            spacePerHost += averageHopLength * 32 # Each new host IP needs to be enqueued into the datastructure
         includedFailiure = False
         # Allows for a 10Mbs (average) upload speed bottleneck on all hosts
-        averageRunTime += (spacePerHost / 125000)
+        averageRunTime += (spacePerHost / 1250)
         if maxPathLength in hops:
             includedFailiure = True
         outputCSV.write("%d,%d,%s,%d,%r,%d,%.6f\n" % (numberOfVertices, len(
@@ -225,7 +225,7 @@ for currentTrial in range(numberOfTrails):
 
     # Progress
     number_of_chars_to_erase = len(str(currentTrial)) + 11 + len(str(numberOfTrails))
-    print("\033[92mTrial:\t%d/%d\033[0m" % (currentTrial,numberOfTrails))
+    print("\033[92mTrial:\t%d/%d\033[0m " % (currentTrial,numberOfTrails))
 
 
 sys.stdout.write('\n')
