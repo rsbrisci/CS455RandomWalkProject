@@ -37,7 +37,7 @@ Ex:\n\
 .")
 parser.add_argument('vertices', type=int,
                     help='Number of vertices in the simulated network (Recommend <= 1000)')
-parser.add_argument('algorithm', choices=['randomwalk', 'bfs', 'lazyrandomwalk'],
+parser.add_argument('algorithm', choices=['randomwalk', 'bfs', 'lazyrandomwalk', 'rw', 'lrw'],
                     help='Choose an algorithm to use in the simulation')
 parser.add_argument('-r', type=int,
                     help='(Default 10) Number of RUNS per EXPERIMENTS (exact same start and end nodes, on network with same edges)')
@@ -51,11 +51,16 @@ args = parser.parse_args()
 numberOfVertices = args.vertices
 algorithm = args.algorithm
 numberOfFailiures = 0
-maxPathLength = 4 * (math.pow(numberOfVertices, 1))
+pofEdgeFail = 0.001
+maxPathLength = 4 * (math.pow(numberOfVertices, 3))
 if args.t:
     numberOfTrails = args.t
 else:
     numberOfTrails = 100
+if (algorithm == "rw"):
+    algorithm = "randomwalk";
+if (algorithm == "lrw"):
+    algorithm = "lazyrandomwalk";
 
 if args.o:
     outfileName = "./Data/" + args.o
@@ -96,7 +101,15 @@ def runAlgorithm(graph, startHost, endHost):
         currHost = random.choice(graph.neighborSet[startHost])
         starttime = time.time()
         while (len(hops) <= maxPathLength and currHost != endHost):
-            currHost = random.choice(graph.neighborSet[currHost])
+            deadset = []
+            for neighbor in graph.neighborSet[currHost]: # Calculates random edge failiure
+                if (pofEdgeFail > random.random()):
+                    deadset.append(neighbor)
+            activeneighbors = list(set(graph.neighborSet[currHost])-set(deadset));
+            if not activeneighbors: # if every edge dies
+                currHost = random.choice(graph.neighborSet[currHost]);
+            else:
+                currHost = random.choice(activeneighbors)
             hops.append(currHost)
         finishtime = time.time()
         return hops, (finishtime - starttime)
@@ -118,9 +131,14 @@ def runAlgorithm(graph, startHost, endHost):
             # enumerate all adjacent nodes, construct a new path and push it
             # into the queue
             for adjacent in graph.neighborSet[currHost]:
+                if (pofEdgeFail > random.random()):
+                    continue;
                 new_path = list(path)
                 new_path.append(adjacent)
                 queue.append(new_path)
+        finishtime = time.time()
+        return path, (finishtime - starttime);
+
 
     if (algorithm == "lazyrandomwalk"):
         hops = []
@@ -128,9 +146,18 @@ def runAlgorithm(graph, startHost, endHost):
         starttime = time.time()
         while (len(hops) <= maxPathLength and currHost != endHost):
             stay = random.random();
-            if (stay > .5):
+            deadset = []
+            for neighbor in graph.neighborSet[currHost]: # Calculates random edge failiure
+                if (pofEdgeFail > random.random()):
+                    deadset.append(neighbor)
+            activeneighbors = list(set(graph.neighborSet[currHost])-set(deadset));
+            if not activeneighbors:
+                currHost = random.choice(graph.neighborSet[currHost]);
+            else:
+                currHost = random.choice(activeneighbors)
+            if (stay > .5): # IF we move hosts, else we stay. Because Lazy
                 currHost = random.choice(graph.neighborSet[currHost])
-            hops.append(currHost)
+                hops.append(currHost)
         finishtime = time.time()
         return hops, (finishtime - starttime)
 
@@ -185,12 +212,12 @@ for currentTrial in range(numberOfTrails):
         averageHopLength = sum(hops) / len(hops)
         # Adds link latency into computation, estimating 0.0001 second
         # transmission delay/hop
-        averageRunTime += averageHopLength * 0.0001
+        averageRunTime += (averageHopLength * 0.0001)
         if algorithm == "bfs":
             spacePerHost += averageHopLength * 8
         includedFailiure = False
         # Allows for a 10Mbs (average) upload speed bottleneck on all hosts
-        averageRunTime += spacePerHost / 1250000
+        averageRunTime += (spacePerHost / 125000)
         if maxPathLength in hops:
             includedFailiure = True
         outputCSV.write("%d,%d,%s,%d,%r,%d,%.6f\n" % (numberOfVertices, len(
