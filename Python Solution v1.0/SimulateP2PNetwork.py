@@ -212,12 +212,14 @@ for currentTrial in range(numberOfTrails):
         averageHopLength = sum(hops) / len(hops)
         # Adds link latency into computation, estimating 0.0001 second
         # transmission delay/hop
-        averageRunTime += (averageHopLength * 0.001)
+        averageRunTime += (averageHopLength * 0.01)
         if algorithm == "bfs":
             spacePerHost += averageHopLength * 32 # Each new host IP needs to be enqueued into the datastructure
         includedFailiure = False
         # Allows for a 10Mbs (average) upload speed bottleneck on all hosts
         averageRunTime += (spacePerHost / 1250)
+        # Processing Time For Algorithm
+        averageRunTime += (spacePerHost / 100)
         if maxPathLength in hops:
             includedFailiure = True
         outputCSV.write("%d,%d,%s,%d,%r,%d,%.6f\n" % (numberOfVertices, len(
