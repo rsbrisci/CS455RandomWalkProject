@@ -155,7 +155,7 @@ def runAlgorithm(graph, startHost, endHost):
                 currHost = random.choice(graph.neighborSet[currHost]);
             else:
                 currHost = random.choice(activeneighbors)
-            if (stay > .5): # IF we move hosts, else we stay. Because Lazy
+            if (stay > .5): # IF we move hosts, else we stay. Because Lazy.
                 currHost = random.choice(graph.neighborSet[currHost])
                 hops.append(currHost)
         finishtime = time.time()
@@ -208,7 +208,7 @@ for currentTrial in range(numberOfTrails):
             numhops, searchtime = runAlgorithm(network, startHost, endHost)
             runtime.append(searchtime)
             hops.append(sum(numhops))
-        averageRunTime = sum(runtime) / len(runtime)
+        averageRunTime = 0
         averageHopLength = sum(hops) / len(hops)
         # Adds link latency into computation, estimating 0.0001 second
         # transmission delay/hop
@@ -225,10 +225,7 @@ for currentTrial in range(numberOfTrails):
 
     # Progress
     number_of_chars_to_erase = len(str(currentTrial)) + 11 + len(str(numberOfTrails))
-    sys.stdout.flush()
-    sys.stdout.write("%s" % ("\b" * number_of_chars_to_erase))
-    sys.stdout.flush()
-    sys.stdout.write("\033[92mTrial:\t%d/%d\033[0m" % (currentTrial,numberOfTrails))
+    print("\033[92mTrial:\t%d/%d\033[0m" % (currentTrial,numberOfTrails))
 
 
 sys.stdout.write('\n')
