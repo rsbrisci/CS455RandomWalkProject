@@ -39,7 +39,7 @@ graph
 #dev.off()
 
 #png(paste(df$vertices, " Vertex Comparison of Running Time.png"))
-graph <- ggplot(df, aes(x=edges,y=time, color=algorithm)) +geom_jitter(size = 2, shape = 18, aes(color=algorithm))
+graph <- ggplot(df, aes(x=edges,y=time, color=algorithm)) + geom_jitter(size = 2, shape = 18, aes(color=algorithm))
 graph <- graph + geom_smooth(data=subset(df, algorithm == "lazyrandomwalk"),se=TRUE,color="green") + geom_smooth(data=subset(df, algorithm == "randomwalk"),se=TRUE,color="blue") + geom_smooth(data=subset(df, algorithm == "bfs"),se=TRUE, color="red")
 graph <- graph + ggtitle(paste(df$vertices, "Vertex Comparison of Running Time in Milliseconds"))+ xlab("Number of Edges") + ylab("Running Time (Milliseconds/Query)")
 graph <- graph + scale_colour_hue(l=30) + geom_vline(data=failureDf,color="red",size=.2,aes(xintercept=edges))

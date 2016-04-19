@@ -210,9 +210,10 @@ for currentTrial in range(numberOfTrails):
             hops.append(sum(numhops))
         averageRunTime = sum(runtime) / len(runtime)
         averageHopLength = sum(hops) / len(hops)
+
         # Adds link latency into computation, estimating 0.0001 second
         # transmission delay/hop
-        averageRunTime += (averageHopLength * 0.01)
+        averageRunTime += (averageHopLength * 0.1)
         if algorithm == "bfs":
             spacePerHost += averageHopLength * 32 # Each new host IP needs to be enqueued into the datastructure
         includedFailiure = False
@@ -227,7 +228,7 @@ for currentTrial in range(numberOfTrails):
 
     # Progress
     number_of_chars_to_erase = len(str(currentTrial)) + 11 + len(str(numberOfTrails))
-    print("\033[92mTrial:\t%d/%d\033[0m " % (currentTrial,numberOfTrails))
+    print("\033[92mTrial:\t%d/%d\033[0m " % (currentTrial+1,numberOfTrails))
 
 
 sys.stdout.write('\n')
