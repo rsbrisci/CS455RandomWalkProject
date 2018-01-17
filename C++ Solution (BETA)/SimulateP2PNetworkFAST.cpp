@@ -56,5 +56,5 @@ int main(int argc, char* argv[])
 
   for (int i = 0; i < parse.nonOptionsCount(); ++i)
     std::cout << "Non-option #" << i << ": " << parse.nonOption(i) << "\n";
-printf("Fuck");
+printf("It didnt work");
 }
